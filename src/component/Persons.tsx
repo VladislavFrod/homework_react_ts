@@ -6,13 +6,19 @@ interface IProps {
     lastName: string,
     surName: string,
     age: number,
-    stat: string,
-    png: string
+    image: string
 }
 
-const Persons: FC<IProps> = ({lastName, surName, age, stat, png}) => {
+const Persons: FC<IProps> = ({lastName, surName, age, image}) => {
     return (
-        <img src={typeof png === 'string' ? png : png:src} alt={`${lastName}`}>
+        <div>
+            <img src={image} alt={lastName} className={styles.imgPerson}/>
+            <h2>Name: {lastName}</h2>
+            <h2>Family: {surName}</h2>
+            <h2>Age: {age}</h2>
+
+
+        </div>
 
     )
 }
