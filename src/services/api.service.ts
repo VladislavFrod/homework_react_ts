@@ -5,7 +5,7 @@ let axiosInstance = axios.create({
 });
 
 axiosInstance.interceptors.request.use(request => {
-    request.headers.set('Content-Type', 'application/json',);
+    request.headers['Content-Type'] = 'application/json';
     return request;
 })
 

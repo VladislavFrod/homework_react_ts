@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import UsersComponent from "./components/users-component/UsersComponent";
+import Users from "./components/Users";
 
 const App =() => {
   return (
     <div>
-      <UsersComponent/>
+      <Users/>
     </div>
   );
 }
