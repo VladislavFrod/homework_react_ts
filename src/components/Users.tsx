@@ -11,17 +11,21 @@ const Users = () =>{
             setUsers(value)
         })
     },[]);
+    // console.log(users)
+    // users.map(user=> console.log(user))
 
     return(
         <div>
+            <div>
             {
                 users.map((user) =>(
                     <User
                         key={user.id}
-                    user={user}
+                        user={user}
                     />
                 ))
             }
+            </div>
         </div>
 
     )

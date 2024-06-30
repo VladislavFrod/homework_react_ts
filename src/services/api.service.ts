@@ -10,7 +10,18 @@ axiosInstance.interceptors.request.use(request => {
 })
 
 const getAllUsers = async () => {
-    return await axiosInstance.get('/users').then((response) => response.data);
+    const response = await axiosInstance.get('/users',{
+        params:{
+            limit: 0
+    }
+    });
+    return response.data.users;
 }
 
-export {getAllUsers};
+const getPosts = async (id: number) => {
+    const response = await axiosInstance.get('/posts/'+id);
+    return response.data.posts;
+}
+
+
+export {getAllUsers, getPosts};
