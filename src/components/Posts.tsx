@@ -8,7 +8,9 @@ interface IProps {
 const Posts: FC<IProps> = ({posts}) => {
     return(
         <ul>
-            {posts.map(value => <li key={value.id}>{value.id}: {value.title}</li>)}
+            {posts.map(post => <li key={post.id}>UserId : {post.userId} <br/>
+                Title: {post.title} <br/>
+                Body: {post.body} </li>)}
         </ul>
     )
 }

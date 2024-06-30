@@ -18,10 +18,10 @@ const getAllUsers = async () => {
     return response.data.users;
 }
 
-const getPosts = async (id: number) => {
-    const response = await axiosInstance.get('/posts/'+id);
+const getPostsOfById = async (id: number) => {
+    const response = await axiosInstance.get('/posts/user/'+id);
     return response.data.posts;
 }
 
 
-export {getAllUsers, getPosts};
+export {getAllUsers, getPostsOfById};

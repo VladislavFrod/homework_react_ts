@@ -1,0 +1,16 @@
+ul{
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+}
+.mainComponent{
+    display: flex;
+    flex-wrap: wrap;
+}
+.user-list{
+    width: 30%;
+    font-size: 16px;
+}
+.user-post{
+    width: 50%;
+}
