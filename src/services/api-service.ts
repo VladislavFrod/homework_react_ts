@@ -12,16 +12,12 @@ axiosInstance.interceptors.request.use(request=>{
 })
 
 const getAllUsers = async (): Promise<IUser[]> => {
-    const res = await axiosInstance.get('/users',{
-        params:{
-            limit: 0,
-        }
-    });
+    const res = await axiosInstance.get('/users');
     return res.data.users;
 }
 
-const getPostsOfById = async (id: number): Promise<IPost[]> => {
-    const res = await axiosInstance.get('/posts');
+const getPostsOfById = async (id: number):Promise<IPost[]> => {
+    const res = await axiosInstance.get('/posts/user/'+id);
     return res.data.posts;
 }
 

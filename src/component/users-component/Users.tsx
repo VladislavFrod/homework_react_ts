@@ -32,15 +32,19 @@ class Users extends Component<{}, UsersComponentState> {
     render() {
         const {users, posts} = this.state;
         return (
-            <div>
-                <hr/>
-                <div>
-                    {users.map((user) => (
-                        <User key={user.id} user={user} getPosts={this.getPosts}/>
-                    ))}
+            <div className={'mainComponent'}>
+                <div className={'user-list'}>
+                    {
+                        users.map((user) => (
+                            <User
+                                key={user.id}
+                                user={user}
+                                getPosts={this.getPosts}
+                            />
+                        ))
+                    }
                 </div>
-                <hr/>
-                <div>
+                <div className={'user-post'}>
                     <Posts posts={posts}/>
                 </div>
             </div>
