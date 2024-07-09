@@ -1,35 +1,44 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useForm} from "react-hook-form";
 import {joiResolver} from "@hookform/resolvers/joi";
 import loginValidator from "../validators/login.validator";
 import axios from "axios";
+import {IForm} from "../models/IForm";
+import Posts from "./Posts";
+import postAll from "../services/api-services"
 
-type IFormType={
-    username: string,
-    password: string,
-    email: string,
-}
 
 const FormComponent = () => {
-    let {formState: {errors, isValid}, register, handleSubmit} =
-        useForm<IFormType>({mode: 'all', resolver: joiResolver(loginValidator)});
+    const [posts, setPosts] = React.useState<IForm[]>([]);
 
-    let formSumbitCustomHandler = async (data: IFormType) => {
+    useEffect(() => {
+        postAll().then((data: IForm[]) => {
+            setPosts(data);
+        });
+    }, []);
+
+    let {formState: {errors, isValid}, register, handleSubmit} =
+        useForm<IForm>({mode: 'all', resolver: joiResolver(loginValidator)});
+    let formSumbitCustomHandler = async (data: IForm) => {
         const response = await axios.post('https://jsonplaceholder.typicode.com/posts', data)
         console.log(response.data);
+        setPosts([...posts, response.data]);
     }
 
     return (
         <div>
+            <label> {errors.userId && <div> {errors.userId?.message}</div>}</label>
+            <label>  {errors.body && <div> {errors.body?.message}</div>}</label>
+            <label>  {errors.title && <div> {errors.title?.message}</div>}</label>
             <form onSubmit={handleSubmit(formSumbitCustomHandler)}>
-                <label> UserName {errors.username && <div> {errors.username?.message}</div>}</label>
-                <input type="text" {...register('username')}/>
-                <label> Password {errors.password && <div> {errors.password?.message}</div>}</label>
-                <input type="text" {...register('password')}/>
-                <label> Email {errors.email && <div> {errors.email?.message}</div>}</label>
-                <input type="text" {...register('email')}/>
-                <button disabled={!isValid}>Send</button>
+                <input type="text" {...register('userId')} placeholder={'UserID'}/>
+                <input type="text" {...register('title')} placeholder={'Title'}/>
+                <input type="text" {...register('body')} placeholder={'Body'}/>
+                <button disabled={!isValid}>send</button>
             </form>
+            <div>
+                <Posts posts={posts}/>
+            </div>
         </div>
     );
 };
