@@ -1,5 +1,6 @@
 import React, {FC} from 'react';
 import {IUser} from "../../models/IUser";
+import './userComponent.css'
 
 interface IProps{
     user: IUser;
@@ -7,14 +8,16 @@ interface IProps{
 
 const UserComponent: FC<IProps> = ({user}) => {
     return(
-        <ul>
-            <li>{user.id}</li>
-            <li>{user.name}</li>
-            <li>{user.username}</li>
-            <li>{user.email}</li>
-            <li>{user.phone}</li>
+        <div className="user-component">
+        <ul className={'user-details'}>
+            <li>Id: {user.id}</li>
+            <li>Name: {user.name}</li>
+            <li>UserName: {user.username}</li>
+            <li>Email: {user.email}</li>
+            <li>Phone: {user.phone}</li>
 
         </ul>
+</div>
     )
 }
 

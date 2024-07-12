@@ -1,0 +1,20 @@
+.MenuComponent{
+    width: 100%;
+    border: 2px solid gray;
+}
+.menu{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    list-style: none;
+    text-decoration: none;
+}
+.menu li a {
+    text-decoration: none;
+    color: purple;
+    font-weight: bold;
+}
+
+.menu li a:hover {
+    text-decoration: underline;
+}

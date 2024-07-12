@@ -5,6 +5,8 @@ import MainLayout from "./layouts/MainLayout";
 import UsersPage from "./pages/UsersPage";
 import CustomErrorLayout from "./layouts/CustomErrorLayout";
 import MenuComponent from "./component/menu/MenuComponent";
+import PostsPage from "./pages/PostsPage";
+import CommentsPage from "./pages/CommentsPage";
 
 
 const root = ReactDOM.createRoot(
@@ -16,7 +18,9 @@ let router = createBrowserRouter([
         errorElement:<CustomErrorLayout/>,
         children: [
             {path: 'Home', element: <MenuComponent/>},
-            {path: 'users', element: <UsersPage/>}
+            {path: 'users', element: <UsersPage/>},
+            {path: 'posts', element: <PostsPage/>},
+            {path: 'comments', element: <CommentsPage/>}
         ] },
 ]);
 

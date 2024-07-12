@@ -3,19 +3,19 @@ import {IUser} from "../../models/IUser";
 import {getAllUsers} from "../../services/api-services";
 import UserComponent from "./UserComponent";
 
-const UsersComponent =()=>{
+const UsersComponent = () => {
     const [users, setUsers] = useState<IUser[]>([]);
 
     useEffect(() => {
-        getAllUsers().then((value: IUser[])=>{
-            setUsers([...value]);
+        getAllUsers().then((res: IUser[]) => {
+            setUsers([...res]);
         })
     }, []);
     console.log(users);
-    return(
+    return (
         <div>
             {
-                users.map((user)=>(
+                users.map((user) => (
                     <UserComponent key={user.id}
                                    user={user}/>
                 ))
