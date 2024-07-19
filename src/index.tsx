@@ -1,13 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import MainLayouts from "./layouts/MainLayouts";
+import MenuComponent from "./component/menu/MenuComponent";
+import CustomErrorLayout from "./layouts/CustomErrorLayout";
 
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+    document.getElementById('root') as HTMLElement
 );
+let router = createBrowserRouter([
+    {
+        path: '/', element: <MainLayouts/>,
+        errorElement:<CustomErrorLayout/>,
+        children: [
+            {path: 'Home', element: <MenuComponent/>,},
+        ]
+    }
+])
 root.render(
-    <App />
+    <RouterProvider router={router}/>
 );
 
