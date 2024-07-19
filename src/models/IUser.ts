@@ -8,10 +8,10 @@ export interface IUser {
         suite: string;
         city: string;
         zipcode: string;
-        geo: {
-            lat: string;
-            lng: string;
-        };
+    };
+    geo: {
+        lat: string;
+        lng: string;
     };
     phone: number;
     website: string;
