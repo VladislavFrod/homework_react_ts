@@ -12,17 +12,17 @@ axiosInstance.interceptors.request.use(request=>{
     return request;
 })
 
-const getAllUsers = async ():Promise<IUser> => {
+const getAllUsers = async ():Promise<IUser[]> => {
     const res  = await axiosInstance.get('/users')
-    return res.data;
+    return res.data
 }
 
-const getAllPosts = async ():Promise<IPost> => {
+const getAllPosts = async ():Promise<IPost[]> => {
     const res  = await axiosInstance.get('/posts')
     return res.data;
 }
 
-const getAllComments = async ():Promise<IComment> =>{
+const getAllComments = async ():Promise<IComment[]> =>{
     const res  = await axiosInstance.get('/comments')
     return res.data;
 }
