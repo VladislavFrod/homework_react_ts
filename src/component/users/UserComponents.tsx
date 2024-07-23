@@ -1,12 +1,14 @@
 import React, { FC } from 'react';
 import { IUser } from "../../models/IUser";
 import './userComponent.css';
+import {useNavigate} from "react-router-dom";
 
 interface IProps {
     user: IUser;
 }
 
 const UserComponents: FC<IProps> = ({ user }) => {
+    let navigate = useNavigate();
     return (
         <div className="user-component">
             <ul className={'user-details'}>
@@ -32,6 +34,9 @@ const UserComponents: FC<IProps> = ({ user }) => {
                     <br/>bs: {user.company.bs}
                 </li>
             </ul>
+            <button onClick={()=>{
+                navigate(user.id.toString() + '/posts');
+            }}>Show Posts Info</button>
         </div>
     );
 };

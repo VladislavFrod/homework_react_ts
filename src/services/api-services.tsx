@@ -17,9 +17,19 @@ const getAllUsers = async ():Promise<IUser[]> => {
     return res.data
 }
 
+const getPostsOfUser = async (id: string):Promise<IPost[]> => {
+    const res  = await axiosInstance.get('/users/' + id + '/posts');
+    return res.data
+}
+
 const getAllPosts = async ():Promise<IPost[]> => {
     const res  = await axiosInstance.get('/posts')
     return res.data;
+}
+
+const getCommentsOfPost = async (id: string):Promise<IComment[]> => {
+    const res  = await axiosInstance.get('/posts/' + id + '/comments');
+    return res.data
 }
 
 const getAllComments = async ():Promise<IComment[]> =>{
@@ -27,4 +37,4 @@ const getAllComments = async ():Promise<IComment[]> =>{
     return res.data;
 }
 
-export {getAllUsers, getAllPosts, getAllComments}
+export {getAllUsers, getAllPosts, getAllComments, getPostsOfUser, getCommentsOfPost}

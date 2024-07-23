@@ -8,6 +8,8 @@ import CustomErrorLayout from "./layouts/CustomErrorLayout";
 import UsersPage from "./pages/UsersPage";
 import PostsPage from "./pages/PostsPage";
 import CommentsPage from "./pages/CommentsPage";
+import PostPage from "./pages/PostPage";
+import CommentPage from "./pages/CommentPage";
 
 
 const root = ReactDOM.createRoot(
@@ -20,7 +22,10 @@ let router = createBrowserRouter([
         children: [
             {path: 'Home', element: <MenuComponent/>,},
             {path: 'Users', element: <UsersPage/>,},
+            {path: 'users/:id/posts', element: <PostPage/>,},
             {path: 'Posts', element: <PostsPage/>,},
+            {path: 'posts/:id/comments', element: <CommentPage/>,},
+            {path: 'users/:id/posts/:id/comments', element: <CommentPage/>,},
             {path: 'Comments', element: <CommentsPage/>,},
         ]
     }
