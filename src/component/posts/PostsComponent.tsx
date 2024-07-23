@@ -11,7 +11,6 @@ const PostsComponent = () => {
             setPosts([...res]);
         })
     }, []);
-    console.log(posts)
     return (
         <div>
             {

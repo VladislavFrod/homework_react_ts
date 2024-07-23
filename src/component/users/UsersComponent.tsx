@@ -11,7 +11,6 @@ const UsersComponent = () => {
             setUsers([...res]);
         })
     }, []);
-    console.log(users);
     return (
         <div>
             {users.map((user: IUser) => (
