@@ -7,7 +7,6 @@ export const loadUsers = createAsyncThunk(
     async (_, thunkAPI) => {
         try {
             let response = await userService.getAll();
-            // thunkAPI.dispatch(userActions.xxx());
             return thunkAPI.fulfillWithValue(response);
         } catch (e) {
             let e1 = e as AxiosError;

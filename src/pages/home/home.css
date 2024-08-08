@@ -1,0 +1,17 @@
+@keyframes moveText {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.moving-text {
+    display: inline-block;
+    white-space: nowrap;
+    animation: moveText 5s linear infinite;
+    font-size: 48px;
+    font-weight: bold;
+}
+
