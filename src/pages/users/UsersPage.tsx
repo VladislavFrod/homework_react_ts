@@ -1,9 +1,10 @@
 import React, {useEffect} from 'react';
 import {useAppDispatch, useAppSelector} from "../../redux/store";
 import {userActions, userSlice} from "../../redux/slices/userSlice";
+import {Link} from "react-router-dom";
 
 const UsersPage = () => {
-    let {userSlice: {users,isLoaded}} = useAppSelector(state => state);
+    let {userStore: {users,isLoaded}} = useAppSelector(state => state);
     let dispatch = useAppDispatch();
     useEffect(() => {
         dispatch(userActions.loadUsers());
@@ -12,7 +13,7 @@ const UsersPage = () => {
         <div>
             {!isLoaded && <div>Loading in process....</div>}
 
-            {users.map(user => <ul className='user-details'><li>{user.name}</li></ul>)}
+            {users.map(user =><div> <Link to={'/users/' + user.id}>{user.name}</Link></div>)}
         </div>
     );
 };

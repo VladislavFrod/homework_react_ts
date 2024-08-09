@@ -3,7 +3,7 @@ import {useAppDispatch, useAppSelector} from "../../redux/store";
 import {postActions} from "../../redux/slices/postSlice";
 
 const PostsPage = () => {
-    let {postSlice: {posts, isLoaded}} = useAppSelector(state => state);
+    let {postStore: {posts, isLoaded}} = useAppSelector(state => state);
     let dispatch = useAppDispatch();
     useEffect(() => {
         dispatch(postActions.loadPosts())
