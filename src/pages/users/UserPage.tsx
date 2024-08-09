@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import {useParams} from "react-router-dom";
 import {useAppDispatch, useAppSelector} from "../../redux/store";
 import {userActions} from "../../redux/slices/userSlice";
+import './userStyle.css'
 
 const UserPage = () => {
     let {id} = useParams();
@@ -15,9 +16,9 @@ const UserPage = () => {
 
 
     return (
-        <div>
+        <div className="user-container" >
             {user ? (
-                <ul>
+                <ul key={user.id}>
                     <li>Id: {user.id}</li>
                     <li>Name: {user.name}</li>
                     <li>UserName: {user.username}</li>

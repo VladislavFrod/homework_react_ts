@@ -1,0 +1,33 @@
+.post-page-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.loading-message {
+    font-size: 18px;
+    color: #999;
+    text-align: center;
+    margin-top: 50px;
+}
+.post-details {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+.post-details ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+}
+.post-details li {
+    margin: 8px 0;
+    font-size: 16px;
+    color: #333;
+}
+.post-details p {
+    font-size: 18px;
+    color: #999;
+    text-align: center;
+}

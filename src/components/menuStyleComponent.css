@@ -1,0 +1,26 @@
+.menu-container {
+    background-color: #333;
+    padding: 10px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.menu-container ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+}
+.menu-container li {
+    margin: 0;
+}
+.menu-container a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+.menu-container a:hover {
+    background-color: #555;
+}

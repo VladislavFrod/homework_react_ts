@@ -1,9 +1,10 @@
 import React from 'react';
 import {Link} from "react-router-dom";
+import './menuStyleComponent.css'
 
 const MenuComponent = () => {
     return (
-        <div>
+        <div className="menu-container">
             <ul>
                 <li><Link to='/'>Home</Link></li>
                 <li><Link to='/users'>Users</Link></li>

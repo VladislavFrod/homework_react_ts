@@ -1,19 +1,28 @@
 import React, {useEffect} from 'react';
 import {useAppDispatch, useAppSelector} from "../../redux/store";
-import {userActions, userSlice} from "../../redux/slices/userSlice";
+import {userActions} from "../../redux/slices/userSlice";
 import {Link} from "react-router-dom";
+import './usersStyle.css'
 
 const UsersPage = () => {
-    let {userStore: {users,isLoaded}} = useAppSelector(state => state);
+    let {userStore: {users, isLoaded}} = useAppSelector(state => state);
     let dispatch = useAppDispatch();
+
     useEffect(() => {
         dispatch(userActions.loadUsers());
-    }, []);
-    return (
-        <div>
-            {!isLoaded && <div>Loading in process....</div>}
+    }, [dispatch]);
 
-            {users.map(user =><div> <Link to={'/users/' + user.id}>{user.name}</Link></div>)}
+    return (
+        <div className="users-page-container">
+            {!isLoaded && <div className="loading-message">Loading in process...</div>}
+
+            <div className="user-list">
+                {users.map(user => (
+                    <div key={user.id}>
+                        <Link to={'/users/' + user.id}>{user.name}</Link>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 };
